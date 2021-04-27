@@ -354,7 +354,7 @@
     {
       "proposedSnapshot": {
         "com.linkedin.metadata.snapshot.MLModelSnapshot": {
-          "urn": "urn:li:mlmodel:(urn:li:dataPlatform:science,scienceModel,PROD)",
+          "urn": "urn:li:mlModel:(urn:li:dataPlatform:science,scienceModel,PROD)",
           "aspects": [
             {
               "com.linkedin.common.Ownership": {

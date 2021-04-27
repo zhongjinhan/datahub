@@ -23,6 +23,7 @@
         </triggeringPolicy>
     </appender>
 
+    <logger name="com.linkedin.metadata.kafka.MetadataChangeEventsProcessor" level="debug"/>
     <root level="info">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
