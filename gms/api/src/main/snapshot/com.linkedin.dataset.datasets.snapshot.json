@@ -182,9 +182,9 @@
           "name" : "datasetName",
           "type" : "string"
         }, {
-          "doc" : "Fabric type where dataset belongs to or where it was generated.",
-          "name" : "origin",
-          "type" : "com.linkedin.common.FabricType"
+          "doc" : "data layer where dataset belongs to or where it was generated.",
+          "name" : "layer",
+          "type" : "string"
         } ],
         "maxLength" : 284,
         "name" : "Dataset",
@@ -212,18 +212,6 @@
       "doc" : "URL where the reference exist",
       "optional" : true
     } ]
-  }, {
-    "type" : "enum",
-    "name" : "FabricType",
-    "namespace" : "com.linkedin.common",
-    "doc" : "Fabric group type",
-    "symbols" : [ "DEV", "EI", "PROD", "CORP" ],
-    "symbolDocs" : {
-      "CORP" : "Designates corporation fabrics",
-      "DEV" : "Designates development fabrics",
-      "EI" : "Designates early-integration (staging) fabrics",
-      "PROD" : "Designates production fabrics"
-    }
   }, {
     "type" : "record",
     "name" : "GlobalTags",
@@ -436,9 +424,15 @@
           }
         }
       }, {
-        "name" : "origin",
-        "type" : "com.linkedin.common.FabricType",
-        "doc" : "Fabric type where dataset belongs to or where it was generated."
+        "name" : "layer",
+        "type" : "string",
+        "doc" : "Data layer where dataset belongs to or where it was generated.",
+        "validate" : {
+          "strlen" : {
+            "max" : 500,
+            "min" : 1
+          }
+        }
       } ]
     }, "com.linkedin.common.ChangeAuditStamps", "com.linkedin.common.VersionTag" ],
     "fields" : [ {

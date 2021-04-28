@@ -265,7 +265,7 @@ public class Datasets extends BaseBrowsableClient<Dataset, DatasetUrn> {
     private DatasetKey toDatasetKey(@Nonnull DatasetUrn urn) {
         return new DatasetKey()
             .setName(urn.getDatasetNameEntity())
-            .setOrigin(urn.getOriginEntity())
+            .setOrigin(urn.getLayerEntity())
             .setPlatform(urn.getPlatformEntity());
     }
 

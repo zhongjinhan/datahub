@@ -51,8 +51,8 @@ public class DatasetFieldUrn extends Urn {
     }, DatasetFieldUrn.class);
   }
 
-  public DatasetFieldUrn(String dataPlatform, String datasetName, FabricType fabricType, String fieldPath) {
-    this(new DatasetUrn(new DataPlatformUrn(dataPlatform), datasetName, fabricType), fieldPath);
+  public DatasetFieldUrn(String dataPlatform, String datasetName, String layer, String fieldPath) {
+    this(new DatasetUrn(new DataPlatformUrn(dataPlatform), datasetName, layer), fieldPath);
   }
 
   /**

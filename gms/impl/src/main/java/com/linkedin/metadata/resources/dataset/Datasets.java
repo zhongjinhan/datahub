@@ -107,7 +107,7 @@ public final class Datasets extends BaseBrowsableEntityResource<
   @Override
   @Nonnull
   protected DatasetUrn toUrn(@Nonnull ComplexResourceKey<DatasetKey, EmptyRecord> key) {
-    return new DatasetUrn(key.getKey().getPlatform(), key.getKey().getName(), key.getKey().getOrigin());
+    return new DatasetUrn(key.getKey().getPlatform(), key.getKey().getName(), key.getKey().getLayer());
   }
 
   @Override
@@ -117,7 +117,7 @@ public final class Datasets extends BaseBrowsableEntityResource<
         new DatasetKey()
             .setPlatform(urn.getPlatformEntity())
             .setName(urn.getDatasetNameEntity())
-            .setOrigin(urn.getOriginEntity()),
+            .setLayer(urn.getLayerEntity()),
         new EmptyRecord());
   }
 
@@ -127,7 +127,7 @@ public final class Datasets extends BaseBrowsableEntityResource<
     final Dataset value = new Dataset()
         .setPlatform(snapshot.getUrn().getPlatformEntity())
         .setName(snapshot.getUrn().getDatasetNameEntity())
-        .setOrigin(snapshot.getUrn().getOriginEntity())
+        .setLayer(snapshot.getUrn().getLayerEntity())
         .setUrn(snapshot.getUrn());
 
     ModelUtils.getAspectsFromSnapshot(snapshot).forEach(aspect -> {

@@ -27,7 +27,7 @@ public class DataProcessSearchSanityTest extends BaseSearchSanityTests<DataProce
   private static final DataProcessDocument DOCUMENT = new DataProcessDocument().setUrn(URN)
       .setBrowsePaths(new StringArray("some", "flow"))
       .setHasOwners(true)
-      .setInputs(new DatasetUrnArray(new DatasetUrn(new DataPlatformUrn("hdfs"), "/foo/bar", FabricType.DEV)))
+      .setInputs(new DatasetUrnArray(new DatasetUrn(new DataPlatformUrn("hdfs"), "/foo/bar", "mirror")))
       .setName("some.flow")
       .setOrchestrator("azkaban");
 

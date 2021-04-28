@@ -40,6 +40,6 @@ public class BaseDatasetVersionedAspectResource<ASPECT extends RecordTemplate>
     @Override
     protected DatasetUrn getUrn(@PathKeysParam @Nonnull PathKeys keys) {
         DatasetKey key = keys.<ComplexResourceKey<DatasetKey, EmptyRecord>>get(DATASET_KEY).getKey();
-        return new DatasetUrn(key.getPlatform(), key.getName(), key.getOrigin());
+        return new DatasetUrn(key.getPlatform(), key.getName(), key.getLayer());
     }
 }

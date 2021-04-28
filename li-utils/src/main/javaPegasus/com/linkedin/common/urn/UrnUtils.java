@@ -17,13 +17,13 @@ public class UrnUtils {
      * Convert platform + dataset + origin into DatasetUrn
      * @param platformName String, e.g. hdfs, oracle
      * @param datasetName String, e.g. /jobs/xxx, ABOOK.ADDRESS
-     * @param origin PROD, CORP, EI, DEV
+     * @param layer mirror, source, etc
      * @return DatasetUrn
      */
     @Nonnull
     public static DatasetUrn toDatasetUrn(@Nonnull String platformName, @Nonnull String datasetName,
-                                          @Nonnull String origin) {
-        return new DatasetUrn(new DataPlatformUrn(platformName), datasetName, toFabricType(origin));
+                                          @Nonnull String layer) {
+        return new DatasetUrn(new DataPlatformUrn(platformName), datasetName, layer);
     }
 
     /**

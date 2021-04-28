@@ -158,9 +158,9 @@
           "name" : "datasetName",
           "type" : "string"
         }, {
-          "doc" : "Fabric type where dataset belongs to or where it was generated.",
-          "name" : "origin",
-          "type" : "com.linkedin.common.FabricType"
+          "doc" : "data layer where dataset belongs to or where it was generated.",
+          "name" : "layer",
+          "type" : "string"
         } ],
         "maxLength" : 284,
         "name" : "Dataset",

@@ -21,7 +21,7 @@ public class DatsetsSearchSanityTest extends BaseSearchSanityTests<DatasetDocume
   public SearchIndex<DatasetDocument> _index;
 
   private static final DataPlatformUrn DATA_PLATFORM_URN = new DataPlatformUrn("hdfs");
-  private static final DatasetUrn URN = new DatasetUrn(DATA_PLATFORM_URN, "/foo/bar/baz", FabricType.DEV);
+  private static final DatasetUrn URN = new DatasetUrn(DATA_PLATFORM_URN, "/foo/bar/baz", "mirror");
   private static final DatasetDocument DOCUMENT = new DatasetDocument().setUrn(URN)
       .setBrowsePaths(new StringArray("foo", "bar", "baz"))
       .setDeprecated(false)

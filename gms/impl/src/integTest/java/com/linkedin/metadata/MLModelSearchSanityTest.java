@@ -26,7 +26,7 @@ public class MLModelSearchSanityTest extends BaseSearchSanityTests<MLModelDocume
 
     private static final DataPlatformUrn DATA_PLATFORM_URN = new DataPlatformUrn("hdfs");
     private static final MLModelUrn URN = new MLModelUrn(DATA_PLATFORM_URN, "/foo/bar/baz", FabricType.DEV);
-    private static final DatasetUrn DATASET_URN = new DatasetUrn(DATA_PLATFORM_URN, "/foo/bar/baz", FabricType.DEV);
+    private static final DatasetUrn DATASET_URN = new DatasetUrn(DATA_PLATFORM_URN, "/foo/bar/baz", "mirro");
     private static final DatasetUrnArray DATASET_URN_ARRAY = new DatasetUrnArray(Collections.singletonList(DATASET_URN));
     private static final MLModelDocument DOCUMENT = new MLModelDocument().setUrn(URN)
         .setDescription("test model")

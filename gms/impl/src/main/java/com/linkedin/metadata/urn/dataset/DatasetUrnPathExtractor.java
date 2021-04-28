@@ -16,7 +16,7 @@ public final class DatasetUrnPathExtractor implements UrnPathExtractor<DatasetUr
       {
         put("/platform", urn.getPlatformEntity().toString());
         put("/datasetName", urn.getDatasetNameEntity());
-        put("/origin", urn.getOriginEntity().toString());
+        put("/layer", urn.getLayerEntity());
         put("/platform/platformName", urn.getPlatformEntity().getPlatformNameEntity());
       }
     });

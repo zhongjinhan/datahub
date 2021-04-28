@@ -94,6 +94,6 @@ public final class DownstreamLineageResource extends SimpleResourceTemplate<Down
   @Nonnull
   private DatasetUrn getUrn(@PathKeysParam @Nonnull PathKeys keys) {
     DatasetKey key = keys.<ComplexResourceKey<DatasetKey, EmptyRecord>>get(DATASET_KEY).getKey();
-    return new DatasetUrn(key.getPlatform(), key.getName(), key.getOrigin());
+    return new DatasetUrn(key.getPlatform(), key.getName(), key.getLayer());
   }
 }
