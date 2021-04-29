@@ -15,7 +15,7 @@ public abstract class DatasetsClient extends BaseClient {
     protected DatasetKey toDatasetKey(@Nonnull DatasetUrn urn) {
         return new DatasetKey()
                 .setName(urn.getDatasetNameEntity())
-                .setOrigin(urn.getOriginEntity())
+                .setLayer(urn.getLayerEntity())
                 .setPlatform(urn.getPlatformEntity());
     }
 }

@@ -25,7 +25,7 @@ record DatasetEntity includes BaseEntity {
   platform: optional DataPlatformUrn
 
   /**
-   * Fabric type where dataset belongs to or where it was generated.
+   * data layer type where dataset belongs to or where it was generated.
    */
-  origin: optional FabricType
+  layer: optional string
 }

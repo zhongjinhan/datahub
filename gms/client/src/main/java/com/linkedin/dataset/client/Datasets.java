@@ -173,7 +173,7 @@ public class Datasets extends BaseBrowsableClient<Dataset, DatasetUrn> {
         throws RemoteInvocationException {
         final List<Dataset> response = filter(indexFilter, Collections.emptyList(), lastUrn, size);
         return response.stream()
-            .map(dataset -> new DatasetUrn(dataset.getPlatform(), dataset.getName(), dataset.getOrigin()))
+            .map(dataset -> new DatasetUrn(dataset.getPlatform(), dataset.getName(), dataset.getLayer()))
             .map(Urn::toString)
             .collect(Collectors.toList());
     }
@@ -265,13 +265,13 @@ public class Datasets extends BaseBrowsableClient<Dataset, DatasetUrn> {
     private DatasetKey toDatasetKey(@Nonnull DatasetUrn urn) {
         return new DatasetKey()
             .setName(urn.getDatasetNameEntity())
-            .setOrigin(urn.getLayerEntity())
+            .setLayer(urn.getLayerEntity())
             .setPlatform(urn.getPlatformEntity());
     }
 
     @Nonnull
     private DatasetUrn toDatasetUrn(@Nonnull DatasetKey key) {
-        return new DatasetUrn(key.getPlatform(), key.getName(), key.getOrigin());
+        return new DatasetUrn(key.getPlatform(), key.getName(), key.getLayer());
     }
 
     /**

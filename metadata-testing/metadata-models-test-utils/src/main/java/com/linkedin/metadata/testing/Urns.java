@@ -35,12 +35,12 @@ public final class Urns {
 
   @Nonnull
   public static DatasetUrn makeDatasetUrn(@Nonnull String name) {
-    return new DatasetUrn(new DataPlatformUrn("mysql"), name, FabricType.DEV);
+    return new DatasetUrn(new DataPlatformUrn("mysql"), name, "dev");
   }
 
   @Nonnull
-  public static DatasetUrn makeDatasetUrn(@Nonnull String platform, @Nonnull String name, @Nonnull FabricType fabricType) {
-    return new DatasetUrn(new DataPlatformUrn(platform), name, fabricType);
+  public static DatasetUrn makeDatasetUrn(@Nonnull String platform, @Nonnull String name, @Nonnull String layer) {
+    return new DatasetUrn(new DataPlatformUrn(platform), name, layer);
   }
 
   @Nonnull
