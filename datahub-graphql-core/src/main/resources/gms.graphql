@@ -190,9 +190,9 @@ type Dataset implements EntityWithRelationships & Entity {
     name: String!
 
     """
-    Fabric type where dataset belongs to or where it was generated
+    Layer type where dataset belongs to or where it was generated
     """
-    origin: FabricType!
+    layer: String!
 
     """
     Human readable description for dataset
