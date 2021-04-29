@@ -29,7 +29,7 @@ public class DatasetIndexBuilder extends BaseIndexBuilder<DatasetDocument> {
 
   @Nonnull
   private static String buildBrowsePath(@Nonnull DatasetUrn urn) {
-    return ("/" + urn.getOriginEntity() + "/"  + urn.getPlatformEntity().getPlatformNameEntity() + "/" + urn.getDatasetNameEntity())
+    return ("/" + urn.getLayerEntity() + "/"  + urn.getPlatformEntity().getPlatformNameEntity() + "/" + urn.getDatasetNameEntity())
         .replace('.', '/').toLowerCase();
   }
 
@@ -43,7 +43,7 @@ public class DatasetIndexBuilder extends BaseIndexBuilder<DatasetDocument> {
   private static DatasetDocument setUrnDerivedFields(@Nonnull DatasetUrn urn) {
     return new DatasetDocument()
         .setName(urn.getDatasetNameEntity())
-        .setOrigin(urn.getOriginEntity())
+        .setLayer(urn.getLayerEntity())
         .setPlatform(urn.getPlatformEntity().getPlatformNameEntity())
         .setUrn(urn)
         .setBrowsePaths(new StringArray(Collections.singletonList(buildBrowsePath(urn))));

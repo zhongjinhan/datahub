@@ -23,7 +23,7 @@ public class DatasetGraphBuilderTest {
     DatasetEntity expected = new DatasetEntity().setUrn(urn)
         .setName(urn.getDatasetNameEntity())
         .setPlatform(urn.getPlatformEntity())
-        .setOrigin(urn.getOriginEntity());
+        .setLayer(urn.getLayerEntity());
 
     List<? extends RecordTemplate> datasetEntities = new DatasetGraphBuilder().buildEntities(snapshot);
 
@@ -41,7 +41,7 @@ public class DatasetGraphBuilderTest {
     DatasetEntity expected = new DatasetEntity().setUrn(urn)
         .setName(urn.getDatasetNameEntity())
         .setPlatform(urn.getPlatformEntity())
-        .setOrigin(urn.getOriginEntity())
+        .setLayer(urn.getLayerEntity())
         .setRemoved(true);
 
     List<? extends RecordTemplate> datasetEntities = new DatasetGraphBuilder().buildEntities(snapshot);

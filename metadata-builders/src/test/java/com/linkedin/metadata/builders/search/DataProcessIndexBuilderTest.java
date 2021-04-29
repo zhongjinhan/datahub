@@ -22,11 +22,11 @@ public class DataProcessIndexBuilderTest {
     DataProcessUrn dataProcessUrn = new DataProcessUrn("Azure Data Factory", "ADFJob1", FabricType.PROD);
     DataProcessInfo dataProcessInfo = new DataProcessInfo();
 
-    DatasetUrn inputDatasetUrn = new DatasetUrn(new DataPlatformUrn("HIVE"), "SampleInputDataset", FabricType.DEV);
+    DatasetUrn inputDatasetUrn = new DatasetUrn(new DataPlatformUrn("HIVE"), "SampleInputDataset", "DEV");
     DatasetUrnArray inputs = new DatasetUrnArray();
     inputs.add(inputDatasetUrn);
     dataProcessInfo.setInputs(inputs);
-    DatasetUrn outputDatasetUrn = new DatasetUrn(new DataPlatformUrn("HIVE"), "SampleOutputDataset", FabricType.DEV);
+    DatasetUrn outputDatasetUrn = new DatasetUrn(new DataPlatformUrn("HIVE"), "SampleOutputDataset", "DEV");
     DatasetUrnArray outputs = new DatasetUrnArray();
     outputs.add(outputDatasetUrn);
     dataProcessInfo.setOutputs(outputs);

@@ -1,7 +1,6 @@
 package com.linkedin.metadata.builders.search;
 
 import com.linkedin.common.DatasetUrnArray;
-import com.linkedin.common.FabricType;
 import com.linkedin.common.Owner;
 import com.linkedin.common.OwnerArray;
 import com.linkedin.common.Ownership;
@@ -32,8 +31,8 @@ public class BuilderUtilsTest {
   @Test
   public void testGetDatasetNames() {
     DatasetUrnArray datasetUrns = new DatasetUrnArray();
-    datasetUrns.add(new DatasetUrn(new DataPlatformUrn("hdfs"), "testDataset1", FabricType.EI));
-    datasetUrns.add(new DatasetUrn(new DataPlatformUrn("hdfs"), "testDataset2", FabricType.EI));
+    datasetUrns.add(new DatasetUrn(new DataPlatformUrn("hdfs"), "testDataset1", "EI"));
+    datasetUrns.add(new DatasetUrn(new DataPlatformUrn("hdfs"), "testDataset2", "EI"));
     assertEquals(BuilderUtils.getDatasetNames(datasetUrns), Arrays.asList("testDataset1", "testDataset2"));
   }
 

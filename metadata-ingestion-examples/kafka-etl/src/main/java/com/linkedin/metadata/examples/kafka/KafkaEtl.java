@@ -1,7 +1,6 @@
 package com.linkedin.metadata.examples.kafka;
 
 import com.linkedin.common.AuditStamp;
-import com.linkedin.common.FabricType;
 import com.linkedin.common.urn.CorpuserUrn;
 import com.linkedin.common.urn.DataPlatformUrn;
 import com.linkedin.common.urn.DatasetUrn;
@@ -84,7 +83,7 @@ public final class KafkaEtl implements CommandLineRunner {
     final KafkaMetadataEventProducer<DatasetSnapshot, DatasetAspect, DatasetUrn> eventProducer =
         new KafkaMetadataEventProducer<>(DatasetSnapshot.class, DatasetAspect.class, _producer, _topicConvention);
     eventProducer.produceSnapshotBasedMetadataChangeEvent(
-        new DatasetUrn(KAFKA_URN, schemaMetadata.getSchemaName(), FabricType.PROD), schemaMetadata);
+        new DatasetUrn(KAFKA_URN, schemaMetadata.getSchemaName(), "PROD"), schemaMetadata);
     _producer.flush();
   }
 

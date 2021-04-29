@@ -34,7 +34,7 @@ public class DatasetMapper implements ModelMapper<com.linkedin.dataset.Dataset, 
         result.setType(EntityType.DATASET);
         result.setName(dataset.getName());
         result.setDescription(dataset.getDescription());
-        result.setOrigin(Enum.valueOf(FabricType.class, dataset.getOrigin().name()));
+        result.setOrigin(Enum.valueOf(FabricType.class, dataset.getLayer()));
         result.setTags(dataset.getTags());
 
         DataPlatform partialPlatform = new DataPlatform();

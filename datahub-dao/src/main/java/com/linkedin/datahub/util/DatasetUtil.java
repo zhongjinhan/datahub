@@ -47,11 +47,11 @@ public class DatasetUtil {
     DatasetView view = new DatasetView();
     view.setPlatform(dataset.getPlatform().getPlatformNameEntity());
     view.setNativeName(dataset.getName());
-    view.setFabric(dataset.getOrigin().name());
+    view.setFabric(dataset.getLayer());
     view.setDescription(dataset.getDescription());
     view.setTags(dataset.getTags());
     // construct DatasetUrn and overwrite URI field for frontend use
-    view.setUri(new DatasetUrn(dataset.getPlatform(), dataset.getName(), dataset.getOrigin()).toString());
+    view.setUri(new DatasetUrn(dataset.getPlatform(), dataset.getName(), dataset.getLayer()).toString());
 
     if (dataset.hasPlatformNativeType()) {
       view.setNativeType(dataset.getPlatformNativeType().name());

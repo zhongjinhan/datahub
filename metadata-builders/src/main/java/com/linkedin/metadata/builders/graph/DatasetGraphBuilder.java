@@ -33,7 +33,7 @@ public class DatasetGraphBuilder extends BaseGraphBuilder<DatasetSnapshot> {
     final DatasetEntity entity = new DatasetEntity().setUrn(urn)
         .setName(urn.getDatasetNameEntity())
         .setPlatform(urn.getPlatformEntity())
-        .setOrigin(urn.getOriginEntity());
+        .setLayer(urn.getLayerEntity());
 
     setRemovedProperty(snapshot, entity);
 

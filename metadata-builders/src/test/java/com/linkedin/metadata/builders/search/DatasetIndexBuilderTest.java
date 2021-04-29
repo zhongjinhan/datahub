@@ -1,7 +1,6 @@
 package com.linkedin.metadata.builders.search;
 
 import com.linkedin.common.DatasetUrnArray;
-import com.linkedin.common.FabricType;
 import com.linkedin.common.Owner;
 import com.linkedin.common.OwnerArray;
 import com.linkedin.common.Ownership;
@@ -41,14 +40,14 @@ public class DatasetIndexBuilderTest {
   @Test
   public void datasetPropertiesSetsDescription() {
     // given
-    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", FabricType.PROD);
+    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", "PROD");
     final DatasetProperties datasetProperties = new DatasetProperties().setDescription("baz");
     final DatasetSnapshot datasetSnapshot = ModelUtils.newSnapshot(DatasetSnapshot.class, datasetUrn,
         Collections.singletonList(ModelUtils.newAspectUnion(DatasetAspect.class, datasetProperties)));
     final DatasetDocument expectedDocument1 = new DatasetDocument().setUrn(datasetUrn).setDescription("baz");
     final DatasetDocument expectedDocument2 = new DatasetDocument().setUrn(datasetUrn)
         .setBrowsePaths(new StringArray("/prod/foo/bar"))
-        .setOrigin(FabricType.PROD)
+        .setLayer("PROD")
         .setName("bar")
         .setPlatform("foo");
 
@@ -62,14 +61,14 @@ public class DatasetIndexBuilderTest {
   @Test
   public void datasetPropertiesNoDescription() {
     // given
-    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", FabricType.PROD);
+    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", "PROD");
     final DatasetProperties datasetProperties = new DatasetProperties();
     final DatasetSnapshot datasetSnapshot = ModelUtils.newSnapshot(DatasetSnapshot.class, datasetUrn,
         Collections.singletonList(ModelUtils.newAspectUnion(DatasetAspect.class, datasetProperties)));
     final DatasetDocument expectedDocument1 = new DatasetDocument().setUrn(datasetUrn);
     final DatasetDocument expectedDocument2 = new DatasetDocument().setUrn(datasetUrn)
         .setBrowsePaths(new StringArray("/prod/foo/bar"))
-        .setOrigin(FabricType.PROD)
+        .setLayer("PROD")
         .setName("bar")
         .setPlatform("foo");
 
@@ -83,14 +82,14 @@ public class DatasetIndexBuilderTest {
   @Test
   public void datasetDeprecation() {
     // given
-    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", FabricType.PROD);
+    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", "PROD");
     final DatasetDeprecation datasetDeprecation = new DatasetDeprecation().setDeprecated(true);
     final DatasetSnapshot datasetSnapshot = ModelUtils.newSnapshot(DatasetSnapshot.class, datasetUrn,
         Collections.singletonList(ModelUtils.newAspectUnion(DatasetAspect.class, datasetDeprecation)));
     final DatasetDocument expectedDocument1 = new DatasetDocument().setUrn(datasetUrn).setDeprecated(true);
     final DatasetDocument expectedDocument2 = new DatasetDocument().setUrn(datasetUrn)
         .setBrowsePaths(new StringArray("/prod/foo/bar"))
-        .setOrigin(FabricType.PROD)
+        .setLayer("PROD")
         .setName("bar")
         .setPlatform("foo");
 
@@ -104,14 +103,14 @@ public class DatasetIndexBuilderTest {
   @Test
   public void datasetDeprecationClearDeprecation() {
     // given
-    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", FabricType.PROD);
+    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", "PROD");
     final DatasetDeprecation datasetDeprecation = new DatasetDeprecation().setDeprecated(false);
     final DatasetSnapshot datasetSnapshot = ModelUtils.newSnapshot(DatasetSnapshot.class, datasetUrn,
         Collections.singletonList(ModelUtils.newAspectUnion(DatasetAspect.class, datasetDeprecation)));
     final DatasetDocument expectedDocument1 = new DatasetDocument().setUrn(datasetUrn).setDeprecated(false);
     final DatasetDocument expectedDocument2 = new DatasetDocument().setUrn(datasetUrn)
         .setBrowsePaths(new StringArray("/prod/foo/bar"))
-        .setOrigin(FabricType.PROD)
+        .setLayer("PROD")
         .setName("bar")
         .setPlatform("foo");
 
@@ -125,7 +124,7 @@ public class DatasetIndexBuilderTest {
   @Test
   public void ownership() {
     // given
-    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", FabricType.PROD);
+    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", "PROD");
     final Owner owner = new Owner().setOwner(new CorpuserUrn("testUser"))
         .setSource(new OwnershipSource().setType(OwnershipSourceType.FILE_SYSTEM))
         .setType(OwnershipType.DATAOWNER);
@@ -136,7 +135,7 @@ public class DatasetIndexBuilderTest {
         new DatasetDocument().setUrn(datasetUrn).setHasOwners(true).setOwners(new StringArray("testUser"));
     final DatasetDocument expectedDocument2 = new DatasetDocument().setUrn(datasetUrn)
         .setBrowsePaths(new StringArray("/prod/foo/bar"))
-        .setOrigin(FabricType.PROD)
+        .setLayer("PROD")
         .setName("bar")
         .setPlatform("foo");
 
@@ -150,7 +149,7 @@ public class DatasetIndexBuilderTest {
   @Test
   public void ownershipIgnoresNonCorpUsers() {
     // given
-    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", FabricType.PROD);
+    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", "PROD");
     final Owner owner1 = new Owner().setOwner(new CorpuserUrn("testUser1"))
         .setSource(new OwnershipSource().setType(OwnershipSourceType.FILE_SYSTEM))
         .setType(OwnershipType.DATAOWNER);
@@ -168,7 +167,7 @@ public class DatasetIndexBuilderTest {
         .setOwners(new StringArray("testUser1", "testUser2"));
     final DatasetDocument expectedDocument2 = new DatasetDocument().setUrn(datasetUrn)
         .setBrowsePaths(new StringArray("/prod/foo/bar"))
-        .setOrigin(FabricType.PROD)
+        .setLayer("PROD")
         .setName("bar")
         .setPlatform("foo");
 
@@ -187,7 +186,7 @@ public class DatasetIndexBuilderTest {
         .setNullable(false)
         .setNativeDataType("boolean")
         .setRecursive(false));
-    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", FabricType.PROD);
+    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", "PROD");
     final SchemaMetadata schemaMetadata = new SchemaMetadata().setFields(schemaFieldArray);
     final DatasetSnapshot datasetSnapshot = ModelUtils.newSnapshot(DatasetSnapshot.class, datasetUrn,
         Collections.singletonList(ModelUtils.newAspectUnion(DatasetAspect.class, schemaMetadata)));
@@ -195,7 +194,7 @@ public class DatasetIndexBuilderTest {
         new DatasetDocument().setUrn(datasetUrn).setHasSchema(true).setFieldPaths(new StringArray("foo.bar.baz"));
     final DatasetDocument expectedDocument2 = new DatasetDocument().setUrn(datasetUrn)
         .setBrowsePaths(new StringArray("/prod/foo/bar"))
-        .setOrigin(FabricType.PROD)
+        .setLayer("PROD")
         .setName("bar")
         .setPlatform("foo");
 
@@ -209,7 +208,7 @@ public class DatasetIndexBuilderTest {
   @Test
   public void removedStatus() {
     // given
-    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", FabricType.PROD);
+    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", "PROD");
     final Status status = new Status().setRemoved(true);
     final DatasetSnapshot datasetSnapshot = ModelUtils.newSnapshot(DatasetSnapshot.class, datasetUrn,
         Collections.singletonList(ModelUtils.newAspectUnion(DatasetAspect.class, status)));
@@ -217,7 +216,7 @@ public class DatasetIndexBuilderTest {
         .setRemoved(true);
     final DatasetDocument expectedDocument2 = new DatasetDocument().setUrn(datasetUrn)
         .setBrowsePaths(new StringArray("/prod/foo/bar"))
-        .setOrigin(FabricType.PROD)
+        .setLayer("PROD")
         .setName("bar")
         .setPlatform("foo");
 
@@ -231,14 +230,14 @@ public class DatasetIndexBuilderTest {
   @Test
   public void nonRemovedStatus() {
     // given
-    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", FabricType.PROD);
+    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", "PROD");
     final Status status = new Status().setRemoved(false);
     final DatasetSnapshot datasetSnapshot = ModelUtils.newSnapshot(DatasetSnapshot.class, datasetUrn,
         Collections.singletonList(ModelUtils.newAspectUnion(DatasetAspect.class, status)));
     final DatasetDocument expectedDocument1 = new DatasetDocument().setUrn(datasetUrn).setRemoved(false);
     final DatasetDocument expectedDocument2 = new DatasetDocument().setUrn(datasetUrn)
         .setBrowsePaths(new StringArray("/prod/foo/bar"))
-        .setOrigin(FabricType.PROD)
+        .setLayer("PROD")
         .setName("bar")
         .setPlatform("foo");
 
@@ -252,9 +251,9 @@ public class DatasetIndexBuilderTest {
   @Test
   public void upstreamLineage() {
     // given
-    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", FabricType.PROD);
-    final DatasetUrn upstreamUrn1 = new DatasetUrn(new DataPlatformUrn("testPlatform"), "dataset1", FabricType.DEV);
-    final DatasetUrn upstreamUrn2 = new DatasetUrn(new DataPlatformUrn("testPlatform"), "dataset2", FabricType.DEV);
+    final DatasetUrn datasetUrn = new DatasetUrn(new DataPlatformUrn("foo"), "bar", "PROD");
+    final DatasetUrn upstreamUrn1 = new DatasetUrn(new DataPlatformUrn("testPlatform"), "dataset1", "DEV");
+    final DatasetUrn upstreamUrn2 = new DatasetUrn(new DataPlatformUrn("testPlatform"), "dataset2", "DEV");
     final Upstream upstream1 = new Upstream().setDataset(upstreamUrn1);
     final Upstream upstream2 = new Upstream().setDataset(upstreamUrn2);
     final UpstreamLineage upstreamLineage = new UpstreamLineage().setUpstreams(new UpstreamArray(upstream1, upstream2));
@@ -264,7 +263,7 @@ public class DatasetIndexBuilderTest {
         new DatasetDocument().setUrn(datasetUrn).setUpstreams(new DatasetUrnArray(upstreamUrn1, upstreamUrn2));
     final DatasetDocument expectedDocument2 = new DatasetDocument().setUrn(datasetUrn)
         .setBrowsePaths(new StringArray("/prod/foo/bar"))
-        .setOrigin(FabricType.PROD)
+        .setLayer("PROD")
         .setName("bar")
         .setPlatform("foo");
 
