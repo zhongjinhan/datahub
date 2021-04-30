@@ -38,7 +38,7 @@ fragment nonRecursiveDatasetFields on Dataset {
     urn
     name
     type
-    origin
+    layer
     description
     uri
     platform {

@@ -10,7 +10,7 @@ query getChart($urn: String!) {
             inputs {
                 urn
                 name
-                origin
+                layer
                 description
                 platform {
                     name
@@ -76,7 +76,7 @@ mutation updateChart($input: ChartUpdateInput!) {
             inputs {
                 urn
                 name
-                origin
+                layer
                 description
                 platform {
                     name
