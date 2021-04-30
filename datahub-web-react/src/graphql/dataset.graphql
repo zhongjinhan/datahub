@@ -15,7 +15,7 @@ query getDataset($urn: String!) {
         urn
         name
         type
-        origin
+        layer
         description
         uri
         platform {

@@ -67,7 +67,7 @@ export class DatasetEntity implements Entity<Dataset> {
             <Preview
                 urn={data.urn}
                 name={data.name}
-                origin={data.origin}
+                layer={data.layer}
                 description={data.description}
                 platformName={data.platform.name}
                 platformLogo={data.platform.info?.logoUrl}
@@ -83,7 +83,7 @@ export class DatasetEntity implements Entity<Dataset> {
             <Preview
                 urn={data.urn}
                 name={data.name}
-                origin={data.origin}
+                layer={data.layer}
                 description={data.description}
                 platformName={data.platform.name}
                 platformLogo={data.platform.info?.logoUrl}

@@ -175,7 +175,7 @@ type Dataset {
 
     name: String!
 
-    origin: FabricType!
+    layer: String!
 
     description: String
 

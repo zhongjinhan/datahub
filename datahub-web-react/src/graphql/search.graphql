@@ -16,7 +16,7 @@ query getSearchResults($input: SearchInput!) {
                 type
                 ... on Dataset {
                     name
-                    origin
+                    layer
                     description
                     uri
                     platform {
