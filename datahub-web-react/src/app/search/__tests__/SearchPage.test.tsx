@@ -51,7 +51,7 @@ describe('SearchPage', () => {
         const hdfsPlatformBox = getByTestId('facet-platform-hdfs');
         expect(hdfsPlatformBox).toHaveProperty('checked', false);
 
-        const prodOriginBox = getByTestId('facet-origin-PROD');
+        const prodOriginBox = getByTestId('facet-layer-PROD');
         expect(prodOriginBox).toHaveProperty('checked', false);
     });
 
@@ -76,7 +76,7 @@ describe('SearchPage', () => {
         const hdfsPlatformBox = getByTestId('facet-platform-hdfs');
         expect(hdfsPlatformBox).toHaveProperty('checked', true);
 
-        const prodOriginBox = getByTestId('facet-origin-PROD');
+        const prodOriginBox = getByTestId('facet-layer-PROD');
         expect(prodOriginBox).toHaveProperty('checked', false);
     });
 

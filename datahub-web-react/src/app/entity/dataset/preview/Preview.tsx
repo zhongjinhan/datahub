@@ -1,5 +1,5 @@
 import React from 'react';
-import { EntityType, FabricType, Owner, GlobalTags } from '../../../../types.generated';
+import { EntityType, Owner, GlobalTags } from '../../../../types.generated';
 import DefaultPreviewCard from '../../../preview/DefaultPreviewCard';
 import { useEntityRegistry } from '../../../useEntityRegistry';
 import { capitalizeFirstLetter } from '../../../shared/capitalizeFirstLetter';
@@ -7,7 +7,7 @@ import { capitalizeFirstLetter } from '../../../shared/capitalizeFirstLetter';
 export const Preview = ({
     urn,
     name,
-    origin,
+    layer,
     description,
     platformName,
     platformLogo,
@@ -17,7 +17,7 @@ export const Preview = ({
 }: {
     urn: string;
     name: string;
-    origin: FabricType;
+    layer: string;
     description?: string | null;
     platformName: string;
     platformLogo?: string | null;
@@ -35,7 +35,7 @@ export const Preview = ({
             type="Dataset"
             logoUrl={platformLogo || ''}
             platform={capitalPlatformName}
-            qualifier={origin}
+            qualifier={layer}
             tags={globalTags || undefined}
             owners={
                 owners?.map((owner) => {

@@ -62,7 +62,7 @@ const dataset1 = {
     },
     platformNativeType: 'TABLE',
     name: 'The Great Test Dataset',
-    origin: 'PROD',
+    layer: 'PROD',
     tags: ['Private', 'PII'],
     description: 'This is the greatest dataset in the world, youre gonna love it!',
     uri: 'www.google.com',
@@ -130,7 +130,7 @@ const dataset2 = {
     },
     platformNativeType: 'TABLE',
     name: 'Some Other Dataset',
-    origin: 'PROD',
+    layer: 'PROD',
     tags: ['Outdated'],
     description: 'This is some other dataset, so who cares!',
     uri: 'www.google.com',
@@ -178,7 +178,7 @@ export const dataset3 = {
     },
     platformNativeType: 'STREAM',
     name: 'Yet Another Dataset',
-    origin: 'PROD',
+    layer: 'PROD',
     tags: ['Trusted'],
     description: 'This and here we have yet another Dataset (YAN). Are there more?',
     uri: 'www.google.com',
@@ -777,7 +777,7 @@ export const mocks = [
                     ],
                     facets: [
                         {
-                            field: 'origin',
+                            field: 'layer',
                             aggregations: [{ value: 'PROD', count: 3 }],
                         },
                         {
@@ -830,7 +830,7 @@ export const mocks = [
                     ],
                     facets: [
                         {
-                            field: 'origin',
+                            field: 'layer',
                             aggregations: [
                                 {
                                     value: 'PROD',
@@ -888,7 +888,7 @@ export const mocks = [
                     ],
                     facets: [
                         {
-                            field: 'origin',
+                            field: 'layer',
                             aggregations: [
                                 {
                                     value: 'PROD',
@@ -1039,7 +1039,7 @@ export const mocks = [
                     ],
                     facets: [
                         {
-                            field: 'origin',
+                            field: 'layer',
                             aggregations: [
                                 {
                                     value: 'PROD',
@@ -1099,7 +1099,7 @@ export const mocks = [
                     ],
                     facets: [
                         {
-                            field: 'origin',
+                            field: 'layer',
                             aggregations: [
                                 {
                                     value: 'PROD',

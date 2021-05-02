@@ -1,4 +1,4 @@
-import { Dataset, EntityType, FabricType, OwnershipType } from '../../../../../types.generated';
+import { Dataset, EntityType, OwnershipType } from '../../../../../types.generated';
 
 export const sampleDataset: Dataset = {
     __typename: 'Dataset',
@@ -9,7 +9,7 @@ export const sampleDataset: Dataset = {
         name: 'hive',
     },
     name: 'hive dataset',
-    origin: FabricType.Prod,
+    layer: 'PROD',
     description: 'Some description',
     type: EntityType.Dataset,
     tags: [],
@@ -47,7 +47,7 @@ export const sampleDeprecatedDataset: Dataset = {
         name: 'hive',
     },
     name: 'hive dataset',
-    origin: FabricType.Prod,
+    layer: 'PROD',
     description: 'Some deprecated description',
     type: EntityType.Dataset,
     tags: [],
